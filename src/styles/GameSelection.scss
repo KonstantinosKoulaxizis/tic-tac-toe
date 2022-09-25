@@ -6,6 +6,13 @@
     flex-direction: column;
     gap: 15px;
 
+    .reminder {
+      text-align: center;
+      color: $light_500;
+      margin: 2px;
+      margin-top: 15px;
+    }
+
     label {
       display: flex;
       flex-direction: column;
@@ -67,6 +74,37 @@
         accent-color: $secondary_color_500;
         width: 14px;
         height: 14px;
+      }
+    }
+  }
+
+  .game-buttons {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    button {
+      width: $small_screen_width;
+      padding: 10px;
+      font-weight: bold;
+      color: $dark_500;
+      font-size: 18px;
+    }
+
+    .cpu-button {
+      background-color: $secondary_color_500;
+      box-shadow: 0 4px $secondary_color_700;
+    }
+
+    .player-button {
+      background-color: $primary_color_500;
+      box-shadow: 0 4px $primary_color_700;
+    }
+
+    @media (min-width: $small_screen) {
+      button {
+        min-width: $big_screen_width !important;
       }
     }
   }

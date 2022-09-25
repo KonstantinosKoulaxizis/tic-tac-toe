@@ -10,6 +10,7 @@ interface GameSliceInterface {
     X: string
     O: string
   }
+  aiPlayer: boolean
   grid: number,
   board: BoardType
 }
@@ -19,6 +20,7 @@ const initialState: GameSliceInterface = {
     X: 'One',
     O: 'Two'
   },
+  aiPlayer: false,
   grid: INITIAL_GRID_NUMBER,
   board: createBoard(INITIAL_GRID_NUMBER),
 
@@ -32,14 +34,17 @@ export const gameSlice = createSlice({
       const { mark, value } = action.payload
       state.playerNames[mark] = value
     },
-    setGrid: (state, action) => {
+    setGrid: (state, action: PayloadAction<number>) => {
       const gridValue = action.payload
       state.board = createBoard(gridValue)
       state.grid = gridValue
+    },
+    setAiPlayer: (state, action: PayloadAction<boolean>) => {
+      state.aiPlayer = action.payload
     }
   }
 })
 
-export const { setPlayerName, setGrid } = gameSlice.actions
+export const { setPlayerName, setGrid, setAiPlayer } = gameSlice.actions
 
 export default gameSlice.reducer

@@ -21,6 +21,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+button {
+  border-radius: $border_radius_300;
+  border: none;
+  cursor: pointer;
+}
+
+button:active {
+  opacity: 0.8;
+}
+
 .logo {
   text-align: center;
   gap: 3px;
