@@ -17,9 +17,7 @@ const EditPlayersNames = () => {
       {Object.entries(playerNames).map(name => (
         <label key={name[0]}>
           <span className='label-tag'>
-            <span>
-              Player's <span className='capitalize'>{name[0]}</span> name
-            </span>
+            <span>{name[0]} player's name</span>
           </span>
 
           <input value={name[1]} onChange={e => handleUpdate(e, name[0] as MarkType)} />
