@@ -1,0 +1,44 @@
+@import './Constants.scss';
+
+.game-selection {
+  .edit-players-names {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      color: $light_500;
+      font-weight: bold;
+
+      .label-tag {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+    input {
+      margin-top: 7px;
+      border-radius: $border_radius_300;
+      padding: 8px 2px;
+      font-size: 15px;
+      background-color: $light_400;
+      color: $dark_500;
+      font-weight: bold;
+      min-width: $small_screen_width;
+      border: 3px solid $light_400;
+      box-shadow: 4px 6px $dark_700;
+    }
+
+    input:focus {
+      outline: none;
+      border: 3px solid $secondary_color_300;
+    }
+
+    @media (min-width: $small_screen) {
+      input {
+        min-width: $big_screen_width !important;
+      }
+    }
+  }
+}
