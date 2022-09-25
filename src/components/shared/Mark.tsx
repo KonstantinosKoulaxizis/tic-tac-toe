@@ -1,13 +1,14 @@
 import { FunctionComponent } from 'react'
+import { MarkType } from '../../models/Types'
 
 interface MarkInterface {
-  markType: 'X' | 'O'
+  mark: MarkType
 }
 
-const Mark: FunctionComponent<MarkInterface> = ({ markType }) => {
-  const markClass = markType === 'X' ? 'x-letter' : 'o-letter'
+const Mark: FunctionComponent<MarkInterface> = ({ mark }) => {
+  const markClass = mark === 'X' ? 'x-letter' : 'o-letter'
 
-  return <span className={markClass}>{markType}</span>
+  return <span className={markClass}>{mark}</span>
 }
 
 export default Mark

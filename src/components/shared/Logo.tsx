@@ -6,7 +6,7 @@ const Logo = () => {
     <div className='logo'>
       {MARKS.map(mark => (
         <span key={mark} className='logo-letter'>
-          <Mark markType={mark as 'X'} />
+          <Mark mark={mark} />
         </span>
       ))}
     </div>
