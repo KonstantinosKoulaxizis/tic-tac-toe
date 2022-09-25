@@ -20,3 +20,22 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+
+.logo {
+  display: flex;
+  gap: 3px;
+}
+
+.logo-letter {
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.x-letter {
+  color: $primary_color_500;
+}
+
+.o-letter {
+  color: $secondary_color_500;
+}

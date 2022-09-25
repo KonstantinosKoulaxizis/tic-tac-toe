@@ -1,5 +1,11 @@
+import Logo from '../components/shared/Logo'
+
 function GameSelection() {
-  return <div>Game selection</div>
+  return (
+    <div>
+      <Logo />
+    </div>
+  )
 }
 
 export default GameSelection
