@@ -1,7 +1,9 @@
 import { ChangeEvent } from 'react'
-import { MarkType } from '../../models/Types'
+
 import { useReduxDispatch, useReduxSelector } from '../../utils/ReduxHooks'
 import { setPlayerName } from '../../store/slices/gameReducer'
+
+import { MarkType } from '../../models/Types'
 
 const EditPlayerName = () => {
   const dispatch = useReduxDispatch()
@@ -14,6 +16,7 @@ const EditPlayerName = () => {
 
   return (
     <div className='edit-players-names'>
+      <h2 className='reminder'>Remember X goes first</h2>
       {Object.entries(playerNames).map(name => (
         <label key={name[0]}>
           <span className='label-tag'>
