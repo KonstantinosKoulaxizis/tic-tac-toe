@@ -41,4 +41,33 @@
       }
     }
   }
+
+  .grid-selection {
+    color: $light_500;
+    font-weight: bold;
+    text-align: center;
+
+    h3 {
+      text-decoration: underline;
+    }
+
+    .grid-selection-container {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-content: space-between;
+      min-width: $small_screen_width;
+
+      label {
+        padding-right: 5px;
+      }
+
+      input {
+        accent-color: $secondary_color_500;
+        width: 14px;
+        height: 14px;
+      }
+    }
+  }
 }
