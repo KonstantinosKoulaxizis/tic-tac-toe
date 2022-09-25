@@ -1,6 +1,6 @@
 import Logo from '../components/shared/Logo'
-import EditPlayersNames from '../components/gameSelection/EditPlayersNames'
-import GridTypeSelection from '../components/gameSelection/GridTypeSelection'
+import EditPlayerName from '../components/gameSelection/EditPlayerName'
+import GridSelection from '../components/gameSelection/GridSelection'
 
 import '../styles/GameSelection.scss'
 
@@ -8,8 +8,8 @@ function GameSelection() {
   return (
     <div className='game-selection'>
       <Logo />
-      <EditPlayersNames />
-      <GridTypeSelection/>
+      <EditPlayerName />
+      <GridSelection/>
     </div>
   )
 }

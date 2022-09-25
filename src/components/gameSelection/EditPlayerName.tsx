@@ -3,7 +3,7 @@ import { MarkType } from '../../models/Types'
 import { useReduxDispatch, useReduxSelector } from '../../utils/ReduxHooks'
 import { setPlayerName } from '../../store/slices/gameReducer'
 
-const EditPlayersNames = () => {
+const EditPlayerName = () => {
   const dispatch = useReduxDispatch()
   const { playerNames } = useReduxSelector(state => state.game)
 
@@ -27,4 +27,4 @@ const EditPlayersNames = () => {
   )
 }
 
-export default EditPlayersNames
+export default EditPlayerName

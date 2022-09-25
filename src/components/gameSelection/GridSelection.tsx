@@ -1,7 +1,7 @@
 import { useReduxDispatch, useReduxSelector } from '../../utils/ReduxHooks'
 import { setGrid } from '../../store/slices/gameReducer'
 
-const GridTypeSelection = () => {
+const GridSelection = () => {
   const dispatch = useReduxDispatch()
   const { grid } = useReduxSelector(state => state.game)
 
@@ -29,4 +29,4 @@ const GridTypeSelection = () => {
   )
 }
 
-export default GridTypeSelection
+export default GridSelection
