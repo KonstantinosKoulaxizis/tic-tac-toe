@@ -1,5 +1,21 @@
-function App() {
-  return <div>App</div>
+import { Routes, Route, Outlet } from 'react-router-dom'
+
+import GameSelection from './views/GameSelection'
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path='/' element={<Layout />}>
+        <Route index element={<GameSelection />} />
+      </Route>
+    </Routes>
+  )
 }
 
-export default App
+const Layout = () => {
+  return (
+    <div>
+      <Outlet />
+    </div>
+  )
+}
