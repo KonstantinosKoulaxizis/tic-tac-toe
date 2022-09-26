@@ -28,7 +28,10 @@ const RoundResult = () => {
       )}
 
       <div className='round-result-buttons-container'>
-        <button onClick={exitToGameSelection}>Exit to game selection</button>
+        <div>
+          <button onClick={exitToGameSelection}>Exit to game selection</button>
+          <span>* All progress will be lost</span>
+        </div>
         <button onClick={handleNextRound}>Next round</button>
       </div>
     </div>

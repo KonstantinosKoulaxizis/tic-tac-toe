@@ -33,8 +33,21 @@
       justify-content: space-between;
       padding-top: 15px;
 
+      div {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        span {
+          font-size: 14px;
+          font-weight: bold;
+          color: $primary_color_500;
+        }
+      }
+
       button {
         background-color: $secondary_color_500;
+        max-height: 40px;
       }
     }
   }
