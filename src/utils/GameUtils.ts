@@ -1,4 +1,4 @@
-import { BoardMovesType, BoardType, GameResultType, MarkType } from '../models/Types'
+import { BoardMovesType, BoardType, GameResultType } from '../models/Types'
 import { O_MARK, X_MARK } from './Constants'
 
 /**
@@ -27,7 +27,7 @@ export const isWinCombo = (array: BoardMovesType[]): boolean => {
  * @param board Game board with played moves
  * @returns Checks all possible combos and return the winning Mark or false
  */
-export const calculateWin = (board: BoardType): GameResultType => {
+export const calculateResult = (board: BoardType): GameResultType => {
   let completedRows = 0
   const leftDiagonal: BoardMovesType[] = []
   const rightDiagonal: BoardMovesType[] = []

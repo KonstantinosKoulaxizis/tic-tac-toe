@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { BoardType, GameResultType, MarkType } from '../../models/Types'
-import { calculateWin, createBoard } from '../../utils/GameUtils'
+import { calculateResult, createBoard } from '../../utils/GameUtils'
 
 import { INITIAL_GRID_NUMBER, O_MARK, X_MARK } from '../../utils/Constants'
 
@@ -49,7 +49,7 @@ export const gameSlice = createSlice({
       const { row, index } = action.payload
 
       state.board[row][index] = state.turn
-      state.result = calculateWin(state.board)
+      state.result = calculateResult(state.board)
 
       if (!state.result) {
         state.turn = X_MARK ? O_MARK : X_MARK
