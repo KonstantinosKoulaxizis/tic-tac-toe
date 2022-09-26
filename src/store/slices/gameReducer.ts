@@ -43,10 +43,15 @@ export const gameSlice = createSlice({
       if (!state.result) {
         state.turn = state.turn === X_MARK ? O_MARK : X_MARK
       }
+    },
+    resetRound: state => {
+      state.board = createBoard(state.grid)
+      state.turn = X_MARK
+      state.result = false
     }
   }
 })
 
-export const { setPlayerName, setGrid, setAiPlayer, addMove } = gameSlice.actions
+export const { setPlayerName, setGrid, setAiPlayer, addMove, resetRound } = gameSlice.actions
 
 export default gameSlice.reducer
