@@ -6,5 +6,5 @@ import { BoardType } from '../models/Types'
  * @returns A new board matrix grid x grid
  */
 export const createBoard = (grid: number): BoardType => {
-  return Array.from({ length: grid }, e => Array(grid).fill(''))
+  return Array.from({ length: grid }, e => Array(grid).fill(false))
 }
