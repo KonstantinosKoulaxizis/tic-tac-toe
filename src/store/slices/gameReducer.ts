@@ -3,27 +3,26 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { BoardType, MarkType } from '../../models/Types'
 import { createBoard } from '../../utils/GameUtils'
 
-import { INITIAL_GRID_NUMBER } from '../../utils/Constants'
+import { INITIAL_GRID_NUMBER, O_MARK, X_MARK } from '../../utils/Constants'
 
 interface GameSliceInterface {
   playerNames: {
-    X: string
-    O: string
+    [X_MARK]: string
+    [O_MARK]: string
   }
   aiPlayer: boolean
-  grid: number,
+  grid: number
   board: BoardType
 }
 
 const initialState: GameSliceInterface = {
   playerNames: {
-    X: 'One',
-    O: 'Two'
+    [X_MARK]: 'One',
+    [O_MARK]: 'Two'
   },
   aiPlayer: false,
   grid: INITIAL_GRID_NUMBER,
-  board: createBoard(INITIAL_GRID_NUMBER),
-
+  board: createBoard(INITIAL_GRID_NUMBER)
 }
 
 export const gameSlice = createSlice({
