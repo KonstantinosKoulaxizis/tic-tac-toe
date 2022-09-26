@@ -1,0 +1,12 @@
+.game {
+  display: flex;
+  justify-content: flex-start;
+  height: 100vh;
+  .top-bar {
+    display: flex;
+    width: 96vw; // TODO change
+    justify-content: space-between;
+    max-height: 40px;
+    padding: 10px;
+  }
+}

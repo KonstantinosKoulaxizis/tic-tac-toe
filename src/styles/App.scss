@@ -22,8 +22,12 @@ body {
 }
 
 button {
+  font-weight: bold;
+  color: $dark_500;
   border-radius: $border_radius_300;
   border: none;
+  font-size: 15px;
+  padding: 10px 15px;
   cursor: pointer;
 }
 
@@ -47,4 +51,12 @@ button:active {
 
 .o-letter {
   color: $secondary_color_500;
+}
+
+.primary {
+  background-color: $primary_color_500;
+}
+
+.secondary {
+  background-color: $secondary_color_500;
 }
