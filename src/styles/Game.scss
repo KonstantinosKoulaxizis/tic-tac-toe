@@ -13,32 +13,48 @@
     padding: 10px;
   }
 
-  .board-grid {
+  .board-grid-container {
     display: flex;
     flex-direction: column;
-    gap: 15px;
     flex: 1;
-    justify-content: center;
+    padding: 25px;
     align-items: center;
-    width: 100%;
-    .board-row {
+    justify-content: center;
+
+    .board-grid {
       display: flex;
+      flex-direction: column;
       gap: 15px;
       flex: 1;
-      height: 100%;
+      justify-content: center;
+      align-items: center;
+      max-height: 80vw;
       width: 100%;
-      max-width: 650px;
-      max-height: 650px;
-
-      .board-tile {
+      .board-row {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: $dark_400;
-        border-radius: $border_radius_300;
-        box-shadow: 4px 6px $dark_700;
+        gap: 15px;
         flex: 1;
-        cursor: pointer;
+        height: 100%;
+        width: 100%;
+        max-width: 650px;
+        max-height: 650px;
+        min-width: 32px;
+        min-height: 32px;
+
+        .board-tile {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: $dark_400;
+          border-radius: $border_radius_300;
+          box-shadow: 4px 6px $dark_700;
+          flex: 1;
+          font-size: 33px;
+        }
+
+        .board-tile:disabled {
+          cursor: not-allowed;
+        }
       }
     }
   }

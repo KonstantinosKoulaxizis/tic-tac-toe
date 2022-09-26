@@ -25,7 +25,7 @@ export const isWinCombo = (array: BoardMovesType[]): boolean => {
 /**
  *
  * @param board Game board with played moves
- * @returns Checks all possible combos and return the winning Mark or false
+ * @returns Checks all possible combos and return the winning Mark or in case all moves are played return 'draw' else false
  */
 export const calculateResult = (board: BoardType): GameResultType => {
   let completedRows = 0
