@@ -5,12 +5,38 @@
   flex-direction: column;
   justify-content: flex-start;
   height: 100vh;
+
+  .player-round-text {
+    margin: 5px;
+  }
+
   .top-bar {
     display: flex;
     width: 96vw;
     justify-content: space-between;
     max-height: 40px;
     padding: 10px;
+  }
+
+  .round-result {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    color: $light_500;
+
+    .round-result-buttons-container {
+      max-width: 650px;
+      align-self: center;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding-top: 15px;
+
+      button {
+        background-color: $secondary_color_500;
+      }
+    }
   }
 
   .round-info {
@@ -25,10 +51,6 @@
       box-shadow: 4px 6px $dark_700;
       padding: 15px 20px;
       max-width: fit-content;
-    }
-
-    .player-round-text {
-      margin: 5px;
     }
   }
 

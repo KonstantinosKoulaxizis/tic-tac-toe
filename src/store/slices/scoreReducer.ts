@@ -16,21 +16,20 @@ export const scoreSlice = createSlice({
   name: 'app',
   initialState,
   reducers: {
-    setResult: (state, action: PayloadAction<{ winner: GameResultType }>) => {
-      const { winner } = action.payload
+    setNextRound: (state, action: PayloadAction<GameResultType>) => {
+      const winner = action.payload
 
       if (winner === 'draw') {
         state.draws++
       } else if (winner) {
         state.score[winner]++
       }
-    },
-    setNextRound: state => {
+
       state.round++
     }
   }
 })
 
-export const { setResult, setNextRound } = scoreSlice.actions
+export const { setNextRound } = scoreSlice.actions
 
 export default scoreSlice.reducer
