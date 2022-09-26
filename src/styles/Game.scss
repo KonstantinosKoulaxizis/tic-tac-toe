@@ -19,7 +19,7 @@
     text-align: center;
     color: $light_500;
 
-    .players-turn-container {
+    .players-round-container {
       background-color: $dark_400;
       border-radius: $border_radius_300;
       box-shadow: 4px 6px $dark_700;
@@ -27,8 +27,8 @@
       max-width: fit-content;
     }
 
-    .player-turn-text {
-      margin: 3px;
+    .player-round-text {
+      margin: 5px;
     }
   }
 
