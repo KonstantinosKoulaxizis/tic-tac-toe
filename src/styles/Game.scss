@@ -112,4 +112,46 @@
       }
     }
   }
+
+  .score-info-container {
+    display: flex;
+    justify-content: center;
+    max-width: 650px;
+    align-self: center;
+    width: 100%;
+
+    .score-info {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .info-card {
+      text-align: center;
+      background-color: $dark_300;
+      border-radius: $border_radius_300;
+      box-shadow: 4px 6px $dark_700;
+      padding: 0 20px 15px;
+      max-height: 80px;
+      max-width: 100px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .x-score {
+      background-color: $primary_color_500;
+      box-shadow: 4px 6px $primary_color_700;
+    }
+
+    .o-score {
+      background-color: $secondary_color_500;
+      box-shadow: 4px 6px $secondary_color_700;
+    }
+
+    @media (max-width: $small_screen) {
+      .info-card {
+        padding: 0px;
+      }
+    }
+  }
 }
