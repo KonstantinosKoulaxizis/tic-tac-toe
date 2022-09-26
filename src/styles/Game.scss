@@ -1,12 +1,45 @@
+@import './Constants.scss';
+
 .game {
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   height: 100vh;
   .top-bar {
     display: flex;
-    width: 96vw; // TODO change
+    width: 96vw;
     justify-content: space-between;
     max-height: 40px;
     padding: 10px;
+  }
+
+  .board-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    .board-row {
+      display: flex;
+      gap: 15px;
+      flex: 1;
+      height: 100%;
+      width: 100%;
+      max-width: 650px;
+      max-height: 650px;
+
+      .board-tile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $dark_400;
+        border-radius: $border_radius_300;
+        box-shadow: 4px 6px $dark_700;
+        flex: 1;
+        cursor: pointer;
+      }
+    }
   }
 }
