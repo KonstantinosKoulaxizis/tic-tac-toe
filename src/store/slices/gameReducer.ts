@@ -1,21 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { BoardType, GameResultType, MarkType } from '../../models/Types'
+import { MarkType } from '../../models/Types'
+import { GameSliceInterface } from '../../models/Interfaces'
 import { calculateResult, createBoard } from '../../utils/GameUtils'
 
 import { INITIAL_GRID_NUMBER, O_MARK, X_MARK } from '../../utils/Constants'
-
-interface GameSliceInterface {
-  playerNames: {
-    [X_MARK]: string
-    [O_MARK]: string
-  }
-  aiPlayer: boolean
-  grid: number
-  board: BoardType
-  turn: MarkType
-  result: GameResultType
-}
 
 const initialState: GameSliceInterface = {
   playerNames: {
@@ -52,12 +41,12 @@ export const gameSlice = createSlice({
       state.result = calculateResult(state.board)
 
       if (!state.result) {
-        state.turn = X_MARK ? O_MARK : X_MARK
+        state.turn = state.turn === X_MARK ? O_MARK : X_MARK
       }
     }
   }
 })
 
-export const { setPlayerName, setGrid, setAiPlayer } = gameSlice.actions
+export const { setPlayerName, setGrid, setAiPlayer, addMove } = gameSlice.actions
 
 export default gameSlice.reducer
