@@ -13,6 +13,25 @@
     padding: 10px;
   }
 
+  .round-info {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: $light_500;
+
+    .players-turn-container {
+      background-color: $dark_400;
+      border-radius: $border_radius_300;
+      box-shadow: 4px 6px $dark_700;
+      padding: 15px 20px;
+      max-width: fit-content;
+    }
+
+    .player-turn-text {
+      margin: 3px;
+    }
+  }
+
   .board-grid-container {
     display: flex;
     flex-direction: column;
