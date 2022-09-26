@@ -1,6 +1,6 @@
 import { useReduxDispatch, useReduxSelector } from '../../utils/ReduxHooks'
 import { resetRound } from '../../store/slices/gameReducer'
-import { setNextRound } from '../../store/slices/scoreReducer'
+import { resetGame, setNextRound } from '../../store/slices/scoreReducer'
 import { useNavigate } from 'react-router-dom'
 
 const RoundResult = () => {
@@ -13,6 +13,12 @@ const RoundResult = () => {
     dispatch(setNextRound(result))
   }
 
+  const exitToGameSelection = () => {
+    navigate('/')
+    dispatch(resetGame())
+    dispatch(resetRound())
+  }
+
   return (
     <div className='round-result'>
       {result === 'draw' ? (
@@ -22,7 +28,7 @@ const RoundResult = () => {
       )}
 
       <div className='round-result-buttons-container'>
-        <button onClick={() => navigate('/')}>Exit to game selection</button>
+        <button onClick={exitToGameSelection}>Exit to game selection</button>
         <button onClick={handleNextRound}>Next round</button>
       </div>
     </div>

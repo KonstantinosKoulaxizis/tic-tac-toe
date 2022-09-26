@@ -26,10 +26,18 @@ export const scoreSlice = createSlice({
       }
 
       state.round++
+    },
+    resetGame: state => {
+      state.round = 1
+      state.draws = 0
+      state.score = {
+        [X_MARK]: 0,
+        [O_MARK]: 0
+      }
     }
   }
 })
 
-export const { setNextRound } = scoreSlice.actions
+export const { setNextRound, resetGame } = scoreSlice.actions
 
 export default scoreSlice.reducer
