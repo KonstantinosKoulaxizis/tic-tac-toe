@@ -1,7 +1,8 @@
 import { useReduxSelector } from '../../utils/ReduxHooks'
 
 const RoundInfo = () => {
-  const { turn, playerNames } = useReduxSelector(state => state.game)
+  const { playerNames } = useReduxSelector(state => state.game)
+  const { turn } = useReduxSelector(state => state.board)
   const { round } = useReduxSelector(state => state.score)
 
   return (

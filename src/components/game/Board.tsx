@@ -1,17 +1,19 @@
 import { useReduxDispatch, useReduxSelector } from '../../utils/ReduxHooks'
-import { addMove } from '../../store/slices/gameReducer'
+import { addMove } from '../../store/slices/boardReducer'
 
 import Mark from '../shared/Mark'
 
 const Board = () => {
   const dispatch = useReduxDispatch()
-  const { board, result } = useReduxSelector(state => state.game)
+  const { board, result } = useReduxSelector(state => state.board)
 
   return (
     <div className='board-grid-container'>
       <div className='board-grid'>
+        {/* Render rows */}
         {board.map((rows, i) => (
           <div className='board-row' key={i}>
+            {/* Render row tiles */}
             {rows.map((move, index) => (
               <button
                 key={`${i}-${index}`}
@@ -19,6 +21,7 @@ const Board = () => {
                 onClick={() => dispatch(addMove({ row: i, index }))}
                 disabled={!!result}
               >
+                {/* If there is a move render Mark */}
                 {move && <Mark mark={move} />}
               </button>
             ))}

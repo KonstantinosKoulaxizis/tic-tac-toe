@@ -8,9 +8,6 @@ export interface GameSliceInterface {
   }
   aiPlayer: boolean
   grid: number
-  board: BoardType
-  turn: MarkType
-  result: GameResultType
 }
 
 export interface ScoreSliceInterface {
@@ -20,4 +17,10 @@ export interface ScoreSliceInterface {
   }
   round: number
   draws: number
+}
+
+export interface BoardSliceInterface {
+  board: BoardType
+  turn: MarkType
+  result: GameResultType
 }

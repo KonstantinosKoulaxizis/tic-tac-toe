@@ -13,9 +13,14 @@ const initialState: ScoreSliceInterface = {
 }
 
 export const scoreSlice = createSlice({
-  name: 'app',
+  name: 'score',
   initialState,
   reducers: {
+    /**
+     *
+     * @use Calculate round's result and proceed to next round
+     * @param action Game's result
+     */
     setNextRound: (state, action: PayloadAction<GameResultType>) => {
       const winner = action.payload
 
@@ -27,6 +32,10 @@ export const scoreSlice = createSlice({
 
       state.round++
     },
+    /**
+     *
+     * @use Reset game's state
+     */
     resetGame: state => {
       state.round = 1
       state.draws = 0

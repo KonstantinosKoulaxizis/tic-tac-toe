@@ -1,17 +1,22 @@
 import { useReduxDispatch, useReduxSelector } from '../../utils/ReduxHooks'
-import { resetBoard } from '../../store/slices/gameReducer'
+import { resetBoard } from '../../store/slices/boardReducer'
 import { setNextRound } from '../../store/slices/scoreReducer'
 import { useNavigate } from 'react-router-dom'
 
 const RoundResult = () => {
   const dispatch = useReduxDispatch()
   const navigate = useNavigate()
-  const { turn, playerNames, result } = useReduxSelector(state => state.game)
+  const { playerNames, grid } = useReduxSelector(state => state.game)
+  const { turn, result } = useReduxSelector(state => state.board)
   const { round } = useReduxSelector(state => state.score)
 
+  /**
+   * Change round and reset the board
+   */
   const handleNextRound = () => {
     dispatch(setNextRound(result))
-    dispatch(resetBoard(round))
+    // Add +1 to current round so it can calculate it correct
+    dispatch(resetBoard({ round: round + 1, grid }))
   }
 
   return (

@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useReduxDispatch, useReduxSelector } from '../utils/ReduxHooks'
 import { resetGame } from '../store/slices/scoreReducer'
-import { resetBoard } from '../store/slices/gameReducer'
+import { resetBoard } from '../store/slices/boardReducer'
 
 import TopBar from '../components/game/TopBar'
 import RoundInfo from '../components/game/RoundInfo'
@@ -13,12 +13,13 @@ import '../styles/Game.scss'
 
 const Game = () => {
   const dispatch = useReduxDispatch()
-  const { result } = useReduxSelector(state => state.game)
+  const { grid } = useReduxSelector(state => state.game)
+  const { result } = useReduxSelector(state => state.board)
 
   useEffect(() => {
     dispatch(resetGame())
-    dispatch(resetBoard(0))
-  }, [dispatch])
+    dispatch(resetBoard({ round: 1, grid }))
+  }, [dispatch, grid])
 
   return (
     <div className='game'>

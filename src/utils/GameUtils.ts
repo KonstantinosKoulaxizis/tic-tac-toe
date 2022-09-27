@@ -16,10 +16,7 @@ export const createBoard = (grid: number): BoardType => {
  * @returns True if all elements have the same string
  */
 export const isWinCombo = (array: BoardMovesType[]): boolean => {
-  if (array.every(mark => mark === X_MARK) || array.every(mark => mark === O_MARK)) {
-    return true
-  }
-  return false
+  return array.every(mark => mark === X_MARK) || array.every(mark => mark === O_MARK)
 }
 
 /**

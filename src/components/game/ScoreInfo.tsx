@@ -5,27 +5,33 @@ const ScoreInfo = () => {
   const { score, draws } = useReduxSelector(state => state.score)
   const { playerNames } = useReduxSelector(state => state.game)
 
+  const SCORE_TILES = [
+    {
+      label: `${playerNames[X_MARK]} - ${X_MARK}`,
+      score: score[X_MARK],
+      class: 'info-card x-score'
+    },
+    {
+      label: 'Draw',
+      score: draws,
+      class: 'info-card'
+    },
+    {
+      label: `${playerNames[O_MARK]} - ${O_MARK}`,
+      score: score[O_MARK],
+      class: 'info-card o-score'
+    }
+  ]
+
   return (
     <div className='score-info-container'>
       <div className='score-info'>
-        <div className='info-card x-score'>
-          <h3>
-            {playerNames[X_MARK]} - {X_MARK}
-          </h3>
-          <h3>{score[X_MARK]}</h3>
-        </div>
-
-        <div className='info-card'>
-          <h3>Draw</h3>
-          <h3>{draws}</h3>
-        </div>
-
-        <div className='info-card o-score'>
-          <h3>
-            {playerNames[O_MARK]} - {O_MARK}
-          </h3>
-          <h3>{score[O_MARK]}</h3>
-        </div>
+        {SCORE_TILES.map((tile, index) => (
+          <div className={tile.class} key={index}>
+            <h3>{tile.label}</h3>
+            <h3>{tile.score}</h3>
+          </div>
+        ))}
       </div>
     </div>
   )
