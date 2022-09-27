@@ -1,4 +1,7 @@
-import { useReduxSelector } from '../utils/ReduxHooks'
+import { useEffect } from 'react'
+import { useReduxDispatch, useReduxSelector } from '../utils/ReduxHooks'
+import { resetGame } from '../store/slices/scoreReducer'
+import { resetBoard } from '../store/slices/gameReducer'
 
 import TopBar from '../components/game/TopBar'
 import RoundInfo from '../components/game/RoundInfo'
@@ -9,7 +12,14 @@ import ScoreInfo from '../components/game/ScoreInfo'
 import '../styles/Game.scss'
 
 const Game = () => {
+  const dispatch = useReduxDispatch()
   const { result } = useReduxSelector(state => state.game)
+
+  useEffect(() => {
+    dispatch(resetGame())
+    dispatch(resetBoard())
+
+  }, [dispatch])
 
   return (
     <div className='game'>

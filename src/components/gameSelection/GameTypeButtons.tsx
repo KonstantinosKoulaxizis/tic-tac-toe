@@ -7,16 +7,17 @@ const GameTypeButtons = () => {
   const navigate = useNavigate()
   const dispatch = useReduxDispatch()
 
-  const handlePlayWithCPU = () => {
-    dispatch(setAiPlayer(true))
+  const handleStartGame = (aiPlayer: boolean) => {
+    dispatch(setAiPlayer(aiPlayer))
     navigate('/game')
   }
+  
   return (
     <div className='game-buttons'>
-      <button className='cpu-button' onClick={handlePlayWithCPU}>
+      <button className='cpu-button' onClick={() => handleStartGame(true)}>
         New game vs CPU
       </button>
-      <button className='player-button' onClick={() => navigate('/game')}>
+      <button className='player-button' onClick={() => handleStartGame(false)}>
         New game vs player
       </button>
     </div>

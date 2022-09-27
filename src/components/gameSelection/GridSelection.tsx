@@ -1,11 +1,10 @@
 import { useReduxDispatch, useReduxSelector } from '../../utils/ReduxHooks'
 import { setGrid } from '../../store/slices/gameReducer'
+import { GRID_VALUES } from '../../utils/Constants'
 
 const GridSelection = () => {
   const dispatch = useReduxDispatch()
   const { grid } = useReduxSelector(state => state.game)
-
-  const GRID_VALUES = [3, 4, 5]
 
   return (
     <div className='grid-selection'>

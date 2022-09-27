@@ -1,4 +1,4 @@
-import { resetRound } from '../../store/slices/gameReducer'
+import { resetBoard } from '../../store/slices/gameReducer'
 import { useReduxDispatch } from '../../utils/ReduxHooks'
 import Logo from '../shared/Logo'
 
@@ -8,7 +8,7 @@ const TopBar = () => {
   return (
     <div className='top-bar'>
       <Logo />
-      <button className='secondary' onClick={() => dispatch(resetRound())}>
+      <button className='secondary' onClick={() => dispatch(resetBoard())}>
         Restart round
       </button>
     </div>
