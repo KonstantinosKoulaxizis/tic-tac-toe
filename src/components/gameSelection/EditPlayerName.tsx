@@ -11,18 +11,15 @@ const EditPlayerName = () => {
   const { playerNames } = useReduxSelector(state => state.game)
 
   /**
-   *
-   * @param event String indicating players name
-   * @param mark Player's mark used as key at playerNames
+   * Update players name in redux
    */
-  const handleUpdate = (event: ChangeEvent<HTMLInputElement>, mark: MarkType) => {
+  const handleUpdateName = (event: ChangeEvent<HTMLInputElement>, mark: MarkType) => {
     const value = event.target.value || ''
     dispatch(setPlayerName({ mark, value }))
   }
 
   return (
     <div className='edit-players-names'>
-      <h2 className='reminder'>Remember X goes first</h2>
       {/* Loop through marks array and use it as key to get the name value*/}
       {MARKS.map(mark => (
         <div key={mark}>
@@ -30,7 +27,7 @@ const EditPlayerName = () => {
             <span>{mark} player's name</span>
           </label>
 
-          <input id={mark} value={playerNames[mark]} onChange={e => handleUpdate(e, mark)} />
+          <input id={mark} value={playerNames[mark]} onChange={e => handleUpdateName(e, mark)} />
         </div>
       ))}
     </div>

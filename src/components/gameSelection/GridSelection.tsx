@@ -12,10 +12,11 @@ const GridSelection = () => {
       <div className='grid-selection-container'>
         {GRID_VALUES.map(value => (
           <div key={value}>
-            <label>
+            <label htmlFor={`${value}`}>
               {value} x {value}
             </label>
             <input
+              id={`${value}`}
               type='radio'
               value={value}
               checked={value === grid}
