@@ -7,10 +7,11 @@ const RoundResult = () => {
   const dispatch = useReduxDispatch()
   const navigate = useNavigate()
   const { turn, playerNames, result } = useReduxSelector(state => state.game)
+  const { round } = useReduxSelector(state => state.score)
 
   const handleNextRound = () => {
     dispatch(setNextRound(result))
-    dispatch(resetBoard())
+    dispatch(resetBoard(round))
   }
 
   return (

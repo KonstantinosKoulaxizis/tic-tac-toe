@@ -44,9 +44,9 @@ export const gameSlice = createSlice({
         state.turn = state.turn === X_MARK ? O_MARK : X_MARK
       }
     },
-    resetBoard: state => {
+    resetBoard: (state, action: PayloadAction<number>) => {
       state.board = createBoard(state.grid)
-      state.turn = X_MARK
+      state.turn = action?.payload % 2 ? O_MARK : X_MARK
       state.result = false
     }
   }

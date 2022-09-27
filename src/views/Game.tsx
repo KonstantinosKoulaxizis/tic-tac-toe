@@ -17,8 +17,7 @@ const Game = () => {
 
   useEffect(() => {
     dispatch(resetGame())
-    dispatch(resetBoard())
-
+    dispatch(resetBoard(0))
   }, [dispatch])
 
   return (
