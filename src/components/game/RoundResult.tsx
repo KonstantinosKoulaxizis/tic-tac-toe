@@ -15,7 +15,7 @@ const RoundResult = () => {
    */
   const handleNextRound = () => {
     dispatch(setNextRound(result))
-    // Add +1 to current round so it can calculate it correct
+    // Add +1 to current round so it can calculate the next one
     dispatch(resetBoard({ round: round + 1, grid }))
   }
 

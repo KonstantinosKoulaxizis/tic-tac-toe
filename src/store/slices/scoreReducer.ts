@@ -17,7 +17,6 @@ export const scoreSlice = createSlice({
   initialState,
   reducers: {
     /**
-     *
      * @use Calculate round's result and proceed to next round
      * @param action Game's result
      */
@@ -33,7 +32,6 @@ export const scoreSlice = createSlice({
       state.round++
     },
     /**
-     *
      * @use Reset game's state
      */
     resetGame: state => {

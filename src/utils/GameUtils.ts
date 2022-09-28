@@ -2,7 +2,6 @@ import { BoardMovesType, BoardType, GameResultType } from '../models/Types'
 import { O_MARK, X_MARK } from './Constants'
 
 /**
- *
  * @param grid Number
  * @returns A new board matrix grid x grid
  */
@@ -11,7 +10,6 @@ export const createBoard = (grid: number): BoardType => {
 }
 
 /**
- *
  * @param array Array of board moves
  * @returns True if all elements have the same string
  */
@@ -20,9 +18,9 @@ export const isWinCombo = (array: BoardMovesType[]): boolean => {
 }
 
 /**
- *
+ * @use Checks all possible combos and return the winning Mark or in case all moves are played return 'draw' else false
  * @param board Game board with played moves
- * @returns Checks all possible combos and return the winning Mark or in case all moves are played return 'draw' else false
+ * @returns In case of a winning combo it will return winners Mark, if all rows are completed and no winner 'draw' else false ( game continues )
  */
 export const calculateResult = (board: BoardType): GameResultType => {
   let completedRows = 0
@@ -32,35 +30,39 @@ export const calculateResult = (board: BoardType): GameResultType => {
   for (let i = 0; i < board.length; i++) {
     const columnsToCheck: BoardMovesType[] = []
 
-    // Check if row is completed
+    // Check if row is completed and increase completedRows's value
     if (board[i].every(mark => mark === X_MARK || mark === O_MARK)) {
       completedRows++
     }
 
     // Check rows
     if (isWinCombo(board[i])) {
-      return board[i][0] || false
+      // In case of a winning combo return the the first Mark of the array as the winner
+      return board[i][0]
     }
 
-    //   Check columns
+    // Create a column based on the current index
     board.forEach(row => columnsToCheck.push(row[i]))
 
+    // Check column
     if (isWinCombo(columnsToCheck)) {
-      return columnsToCheck[0] || false
+      return columnsToCheck[0]
     }
 
+    // Create a left and right diagonal combos based
     leftDiagonal.push(board[i][i])
     rightDiagonal.push(board[i][board.length - i - 1])
   }
 
+  // Check right and left diagonal combos
   if (isWinCombo(leftDiagonal)) {
-    return leftDiagonal[0] || false
+    return leftDiagonal[0]
   }
 
   if (isWinCombo(rightDiagonal)) {
-    return rightDiagonal[0] || false
+    return rightDiagonal[0]
   }
 
-  // if all moves are played and no winner return draw
+  // if completedRows are equal to board rows return draw
   return completedRows === board.length ? 'draw' : false
 }

@@ -5,6 +5,9 @@ const ScoreInfo = () => {
   const { score, draws } = useReduxSelector(state => state.score)
   const { playerNames } = useReduxSelector(state => state.game)
 
+  /**
+   * Array of X, O and draw scores
+   */
   const SCORE_TILES = [
     {
       label: `${playerNames[X_MARK]} - ${X_MARK}`,

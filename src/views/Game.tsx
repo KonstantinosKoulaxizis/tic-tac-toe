@@ -16,6 +16,9 @@ const Game = () => {
   const { grid } = useReduxSelector(state => state.game)
   const { result } = useReduxSelector(state => state.board)
 
+  /**
+   * Reset the grid and the board every time the page is reloaded
+   */
   useEffect(() => {
     dispatch(resetGame())
     dispatch(resetBoard({ round: 1, grid }))

@@ -19,7 +19,6 @@ export const gameSlice = createSlice({
   initialState,
   reducers: {
     /**
-     *
      * @use Update player name
      * @param mark X_MARK or O_MARK are used as keys of playerNames object
      * @param value new name for player X or O
@@ -29,7 +28,6 @@ export const gameSlice = createSlice({
       state.playerNames[mark] = value
     },
     /**
-     *
      * @use Set grid and update board
      * @param action Number used to indicate board's grid
      */
@@ -38,7 +36,6 @@ export const gameSlice = createSlice({
       state.grid = gridValue
     },
     /**
-     *
      * @use Change ai mode
      * @param action If true player O will be ai
      */

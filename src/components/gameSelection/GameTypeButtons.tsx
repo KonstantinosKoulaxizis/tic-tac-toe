@@ -7,15 +7,19 @@ const GameTypeButtons = () => {
   const navigate = useNavigate()
   const dispatch = useReduxDispatch()
 
+  /**
+   * @use Choose if the user will play vs the ai or another player and navigate to screen
+   * @param aiPlayer If true ai mode is on
+   */
   const handleStartGame = (aiPlayer: boolean) => {
     dispatch(setAiPlayer(aiPlayer))
     navigate('/game')
   }
-  
+
   return (
     <div className='game-buttons'>
-      <button className='cpu-button' onClick={() => handleStartGame(true)}>
-        New game vs CPU
+      <button className='ai-payer-button' onClick={() => handleStartGame(true)}>
+        New game vs AI
       </button>
       <button className='player-button' onClick={() => handleStartGame(false)}>
         New game vs player

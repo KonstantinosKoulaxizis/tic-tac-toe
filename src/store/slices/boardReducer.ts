@@ -17,7 +17,6 @@ export const boardSlice = createSlice({
   initialState,
   reducers: {
     /**
-     *
      * @use Add a move to the board and calculate if there is a winner or a draw
      * @param row Row of the move
      * @param index Tile's row index of the move
@@ -33,7 +32,6 @@ export const boardSlice = createSlice({
       }
     },
     /**
-     *
      * @use Reset board's state and choose player to play first based on round
      * @param action Round's number
      */
@@ -45,7 +43,6 @@ export const boardSlice = createSlice({
     }
   },
   /**
-   *
    * @use Create new board based on grid value
    * @param action Number used in grid
    */
