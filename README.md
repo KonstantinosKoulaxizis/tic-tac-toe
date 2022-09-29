@@ -28,7 +28,7 @@ First in the project directory run `yarn` or `npm i` in your terminal.
 
 ## Tests
 
-Use ### `yarn test` or `npm test`
+Run `yarn test` or `npm test`
 
 ## Run the project
 
