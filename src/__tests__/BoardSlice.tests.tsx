@@ -6,7 +6,8 @@ import { createBoard } from '../utils/GameUtils'
 const initialState: BoardSliceInterface = {
   board: createBoard(INITIAL_GRID_NUMBER),
   turn: X_MARK,
-  result: false
+  result: false,
+  disabled: false
 }
 
 test('should return the initial state', () => {
@@ -175,7 +176,8 @@ test('should reset the board in 4x4 grid', () => {
   const newState: BoardSliceInterface = {
     board: createBoard(4),
     turn: X_MARK,
-    result: false
+    result: false,
+    disabled: false
   }
 
   expect(reducer(previousState, resetBoard({ round: 1, grid: 4 }))).toEqual(newState)
@@ -192,7 +194,8 @@ test('should reset with O_MARK at round 2', () => {
   const newState: BoardSliceInterface = {
     board: createBoard(3),
     turn: O_MARK,
-    result: false
+    result: false,
+    disabled: false
   }
 
   expect(reducer(previousState, resetBoard({ round: 2, grid: 3 }))).toEqual(newState)
