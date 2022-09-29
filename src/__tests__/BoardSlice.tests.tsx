@@ -22,9 +22,9 @@ test('should add a move and change turn', () => {
   ]
 
   expect(reducer(undefined, addMove({ row: 0, index: 0 }))).toEqual({
+    ...initialState,
     board: updatedBoard,
-    turn: O_MARK,
-    result: false
+    turn: O_MARK
   })
 })
 
@@ -43,6 +43,7 @@ test('should continue game if no winning combination is detected', () => {
   ]
 
   expect(reducer(previousState, addMove({ row: 0, index: 2 }))).toEqual({
+    ...previousState,
     board: updatedBoard,
     turn: O_MARK,
     result: false
@@ -64,6 +65,7 @@ test('should calculate row winning combination', () => {
   ]
 
   expect(reducer(previousState, addMove({ row: 0, index: 2 }))).toEqual({
+    ...previousState,
     board: updatedBoard,
     turn: X_MARK,
     result: X_MARK
@@ -85,6 +87,7 @@ test('should calculate column winning combination', () => {
   ]
 
   expect(reducer(previousState, addMove({ row: 2, index: 0 }))).toEqual({
+    ...previousState,
     board: updatedBoard,
     turn: X_MARK,
     result: X_MARK
@@ -106,6 +109,7 @@ test('should calculate right diagonal winning combination', () => {
   ]
 
   expect(reducer(previousState, addMove({ row: 2, index: 2 }))).toEqual({
+    ...previousState,
     board: updatedBoard,
     turn: X_MARK,
     result: X_MARK
@@ -127,6 +131,7 @@ test('should calculate left diagonal winning combination', () => {
   ]
 
   expect(reducer(previousState, addMove({ row: 2, index: 0 }))).toEqual({
+    ...previousState,
     board: updatedBoard,
     turn: X_MARK,
     result: X_MARK
@@ -148,6 +153,7 @@ test('should calculate draw', () => {
   ]
 
   expect(reducer(previousState, addMove({ row: 2, index: 1 }))).toEqual({
+    ...previousState,
     board: updatedBoard,
     turn: X_MARK,
     result: 'draw'
@@ -174,10 +180,8 @@ test('should reset the board in 4x4 grid', () => {
   ]
 
   const newState: BoardSliceInterface = {
-    board: createBoard(4),
-    turn: X_MARK,
-    result: false,
-    disabled: false
+    ...previousState,
+    board: createBoard(4)
   }
 
   expect(reducer(previousState, resetBoard({ round: 1, grid: 4 }))).toEqual(newState)
