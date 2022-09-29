@@ -74,8 +74,10 @@ export const calculateResult = (board: BoardType): GameResultType => {
  */
 export const calculateAiMove = (board: BoardType): { row: number; index: number } | undefined => {
   for (let i = 0; i < board.length; i++) {
+    // Loop through each row and find the available's move index
     const availableMoveIndex = board[i].findIndex(move => !move)
 
+    // In case of an available move end loop and return row's and move's index
     if (availableMoveIndex > -1) {
       return {
         row: i,
