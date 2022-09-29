@@ -22,6 +22,7 @@
     text-align: center;
     flex-direction: column;
     color: $light_500;
+    flex: 1;
 
     .round-result-buttons-container {
       max-width: 650px;
@@ -71,7 +72,7 @@
   .board-grid-container {
     display: flex;
     flex-direction: column;
-    flex: 2;
+    flex: 3;
     padding: 25px;
     align-items: center;
     justify-content: center;
@@ -110,6 +111,11 @@
         .board-tile:disabled {
           cursor: not-allowed;
         }
+      }
+    }
+    @media (max-width: $small_screen) {
+      .board-grid-container {
+        flex: 2;
       }
     }
   }
