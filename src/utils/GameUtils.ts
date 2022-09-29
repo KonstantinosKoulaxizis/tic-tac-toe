@@ -66,3 +66,23 @@ export const calculateResult = (board: BoardType): GameResultType => {
   // if completedRows are equal to board rows return draw
   return completedRows === board.length ? 'draw' : false
 }
+
+/**
+ * @use Finds the first available move
+ * @param board Game board with played moves
+ * @returns In case of an available move it will return row's index and move's index
+ */
+export const calculateAiMove = (board: BoardType): { row: number; index: number } | undefined => {
+  for (let i = 0; i < board.length; i++) {
+    const availableMoveIndex = board[i].findIndex(move => !move)
+
+    if (availableMoveIndex > -1) {
+      return {
+        row: i,
+        index: availableMoveIndex
+      }
+    }
+  }
+
+  return
+}

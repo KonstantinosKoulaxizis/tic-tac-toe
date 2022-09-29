@@ -1,7 +1,9 @@
 import { useEffect } from 'react'
 import { useReduxDispatch, useReduxSelector } from '../utils/ReduxHooks'
 import { resetGame } from '../store/slices/scoreReducer'
-import { resetBoard } from '../store/slices/boardReducer'
+import { resetBoard, addMove } from '../store/slices/boardReducer'
+import { O_MARK } from '../utils/Constants'
+import { calculateAiMove } from '../utils/GameUtils'
 
 import TopBar from '../components/game/TopBar'
 import RoundInfo from '../components/game/RoundInfo'
@@ -11,8 +13,8 @@ import ScoreInfo from '../components/game/ScoreInfo'
 
 const Game = () => {
   const dispatch = useReduxDispatch()
-  const { grid } = useReduxSelector(state => state.game)
-  const { result } = useReduxSelector(state => state.board)
+  const { grid, aiPlayer } = useReduxSelector(state => state.game)
+  const { result, turn, board } = useReduxSelector(state => state.board)
 
   /**
    * Reset the grid and the board every time the page is reloaded
@@ -20,7 +22,20 @@ const Game = () => {
   useEffect(() => {
     dispatch(resetGame())
     dispatch(resetBoard({ round: 1, grid }))
-  }, [dispatch, grid])
+  }, [grid, dispatch])
+
+  /**
+   * In case of O mark's turn and aiPlayer is active
+   */
+  useEffect(() => {
+    if (aiPlayer && turn === O_MARK && !result) {
+      const aiMove = calculateAiMove(board)
+
+      if (aiMove) {
+        dispatch(addMove(aiMove))
+      }
+    }
+  }, [aiPlayer, turn, board, result, dispatch])
 
   return (
     <div className='game'>
