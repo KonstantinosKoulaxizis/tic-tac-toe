@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useReduxDispatch, useReduxSelector } from '../utils/ReduxHooks'
 import { resetGame } from '../store/slices/scoreReducer'
-import { resetBoard, addMove } from '../store/slices/boardReducer'
+import { resetBoard, addMove, setDisabled } from '../store/slices/boardReducer'
 import { O_MARK } from '../utils/Constants'
 import { calculateAiMove } from '../utils/GameUtils'
 
@@ -26,14 +26,19 @@ const Game = () => {
 
   /**
    * In case of O mark's turn and aiPlayer is active
+   * When aiPlayer is paying disable the board until the move is made
    */
   useEffect(() => {
     if (aiPlayer && turn === O_MARK && !result) {
+      dispatch(setDisabled(true))
       const aiMove = calculateAiMove(board)
 
-      if (aiMove) {
-        dispatch(addMove(aiMove))
-      }
+      setTimeout(() => {
+        if (aiMove) {
+          dispatch(addMove(aiMove))
+          dispatch(setDisabled(false))
+        }
+      }, 800)
     }
   }, [aiPlayer, turn, board, result, dispatch])
 

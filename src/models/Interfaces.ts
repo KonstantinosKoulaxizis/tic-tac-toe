@@ -23,4 +23,5 @@ export interface BoardSliceInterface {
   board: BoardType
   turn: MarkType
   result: GameResultType
+  disabled: boolean
 }

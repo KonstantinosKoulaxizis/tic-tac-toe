@@ -5,7 +5,7 @@ import Mark from '../shared/Mark'
 
 const Board = () => {
   const dispatch = useReduxDispatch()
-  const { board, result } = useReduxSelector(state => state.board)
+  const { board, result, disabled } = useReduxSelector(state => state.board)
 
   return (
     <div className='board-grid-container'>
@@ -19,7 +19,7 @@ const Board = () => {
                 key={`${i}-${index}`}
                 className='board-tile'
                 onClick={() => dispatch(addMove({ row: i, index }))}
-                disabled={!!result}
+                disabled={!!result || disabled}
               >
                 {/* If there is a move render Mark */}
                 {move && <Mark mark={move} />}

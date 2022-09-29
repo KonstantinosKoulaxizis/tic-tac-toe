@@ -9,7 +9,8 @@ import { setGrid } from './gameReducer'
 const initialState: BoardSliceInterface = {
   board: createBoard(INITIAL_GRID_NUMBER),
   turn: X_MARK,
-  result: false
+  result: false,
+  disabled: false
 }
 
 export const boardSlice = createSlice({
@@ -40,6 +41,13 @@ export const boardSlice = createSlice({
       state.board = createBoard(grid)
       state.turn = round % 2 ? X_MARK : O_MARK
       state.result = false
+    },
+    /**
+     * @use Disable the board and not allow new moves from button clicks
+     * @param action Board's disable status
+     */
+    setDisabled: (state, action: PayloadAction<boolean>) => {
+      state.disabled = action.payload
     }
   },
   /**
@@ -53,6 +61,6 @@ export const boardSlice = createSlice({
   }
 })
 
-export const { addMove, resetBoard } = boardSlice.actions
+export const { addMove, resetBoard, setDisabled } = boardSlice.actions
 
 export default boardSlice.reducer
