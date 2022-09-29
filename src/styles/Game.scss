@@ -13,7 +13,7 @@
     width: 96vw;
     justify-content: space-between;
     max-height: 40px;
-    padding: 10px;
+    padding-top: 10px;
   }
 
   .round-result {
@@ -55,6 +55,7 @@
     justify-content: center;
     text-align: center;
     color: $light_500;
+    flex: 1;
 
     .players-round-container {
       background-color: $dark_400;
@@ -62,13 +63,15 @@
       box-shadow: 4px 6px $dark_700;
       padding: 15px 20px;
       max-width: fit-content;
+      max-height: 80px;
+      align-self: center;
     }
   }
 
   .board-grid-container {
     display: flex;
     flex-direction: column;
-    flex: 1;
+    flex: 2;
     padding: 25px;
     align-items: center;
     justify-content: center;
