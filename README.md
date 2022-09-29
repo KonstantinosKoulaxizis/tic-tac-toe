@@ -20,7 +20,6 @@ This project was bootstrapped with Create React App and typescript template, use
 ## Future implementations
 - Improve ai player's algorithm
 - Highlight winning combination
-- Indicate when ai mode is on / add it on player's 2 name
 - Implement more unit tests and integration tests
 - Improve scss
 ## Setup the project

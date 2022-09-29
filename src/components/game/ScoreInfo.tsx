@@ -3,7 +3,7 @@ import { useReduxSelector } from '../../utils/ReduxHooks'
 
 const ScoreInfo = () => {
   const { score, draws } = useReduxSelector(state => state.score)
-  const { playerNames } = useReduxSelector(state => state.game)
+  const { playerNames, aiPlayer } = useReduxSelector(state => state.game)
 
   /**
    * Array of X, O and draw scores
@@ -19,8 +19,11 @@ const ScoreInfo = () => {
       score: draws,
       class: 'info-card'
     },
+    /**
+     *  In case aiPlayer is true use ai instead of playerName
+     */
     {
-      label: `${playerNames[O_MARK]} - ${O_MARK}`,
+      label: `${aiPlayer ? 'AI' : playerNames[O_MARK]} - ${O_MARK}`,
       score: score[O_MARK],
       class: 'info-card o-score'
     }
