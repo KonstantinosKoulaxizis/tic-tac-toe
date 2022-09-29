@@ -19,7 +19,7 @@ const Board = () => {
                 key={`${i}-${index}`}
                 className='board-tile'
                 onClick={() => dispatch(addMove({ row: i, index }))}
-                disabled={!!result || disabled}
+                disabled={!!move || !!result || disabled}
               >
                 {/* If there is a move render Mark */}
                 {move && <Mark mark={move} />}
