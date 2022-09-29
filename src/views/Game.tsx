@@ -9,8 +9,6 @@ import RoundResult from '../components/game/RoundResult'
 import Board from '../components/game/Board'
 import ScoreInfo from '../components/game/ScoreInfo'
 
-import '../styles/Game.scss'
-
 const Game = () => {
   const dispatch = useReduxDispatch()
   const { grid } = useReduxSelector(state => state.game)
