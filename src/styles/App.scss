@@ -36,6 +36,16 @@ button:active {
 .logo {
   text-align: center;
   gap: 3px;
+  padding-bottom: 20px;
+
+  .on-air-logo {
+    font-size: 28px;
+    border: 2px solid $primary_color_500;
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin-right: 10px;
+    color: $primary_color_500;
+  }
 }
 
 .logo-letter {
