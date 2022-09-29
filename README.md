@@ -1,6 +1,6 @@
 # On Air tic tac toe
 
-This project was bootstrapped with Create React App and typescript template, uses redux toolkit for global state management and scss for style.
+This project was bootstrapped with Create React App and typescript template, uses redux toolkit for global state management and scss for style. You can find a live demo at (https://peppy-naiad-dee076.netlify.app).
 
 ## Project features
 - Simple tic tac toe game with On Air Branding and interactive user-friendly feeling.
@@ -19,6 +19,7 @@ This project was bootstrapped with Create React App and typescript template, use
 
 ## Future implementations
 - Improve ai players algorithm
+- Indicate when ai mode is on / add it on player's 2 name
 - Implement more unit tests and integration tests
 - Improve scss
 ## Setup the project
