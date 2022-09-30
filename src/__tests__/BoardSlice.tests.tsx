@@ -16,9 +16,21 @@ test('should return the initial state', () => {
 
 test('should add a move and change turn', () => {
   const updatedBoard = [
-    [X_MARK, false, false],
-    [false, false, false],
-    [false, false, false]
+    [
+      { move: X_MARK, highlight: false },
+      { move: false, highlight: false },
+      { move: false, highlight: false }
+    ],
+    [
+      { move: false, highlight: false },
+      { move: false, highlight: false },
+      { move: false, highlight: false }
+    ],
+    [
+      { move: false, highlight: false },
+      { move: false, highlight: false },
+      { move: false, highlight: false }
+    ]
   ]
 
   expect(reducer(undefined, addMove({ row: 0, index: 0 }))).toEqual({
@@ -31,15 +43,39 @@ test('should add a move and change turn', () => {
 test('should continue game if no winning combination is detected', () => {
   const previousState = { ...initialState }
   previousState.board = [
-    [X_MARK, O_MARK, false],
-    [false, false, false],
-    [false, false, false]
+    [
+      { move: X_MARK, highlight: false },
+      { move: O_MARK, highlight: false },
+      { move: false, highlight: false }
+    ],
+    [
+      { move: false, highlight: false },
+      { move: false, highlight: false },
+      { move: false, highlight: false }
+    ],
+    [
+      { move: false, highlight: false },
+      { move: false, highlight: false },
+      { move: false, highlight: false }
+    ]
   ]
 
   const updatedBoard = [
-    [X_MARK, O_MARK, X_MARK],
-    [false, false, false],
-    [false, false, false]
+    [
+      { move: X_MARK, highlight: false },
+      { move: O_MARK, highlight: false },
+      { move: X_MARK, highlight: false }
+    ],
+    [
+      { move: false, highlight: false },
+      { move: false, highlight: false },
+      { move: false, highlight: false }
+    ],
+    [
+      { move: false, highlight: false },
+      { move: false, highlight: false },
+      { move: false, highlight: false }
+    ]
   ]
 
   expect(reducer(previousState, addMove({ row: 0, index: 2 }))).toEqual({
@@ -53,15 +89,39 @@ test('should continue game if no winning combination is detected', () => {
 test('should calculate row winning combination', () => {
   const previousState = { ...initialState }
   previousState.board = [
-    [X_MARK, X_MARK, false],
-    [O_MARK, O_MARK, false],
-    [false, false, false]
+    [
+      { move: X_MARK, highlight: false },
+      { move: X_MARK, highlight: false },
+      { move: false, highlight: false }
+    ],
+    [
+      { move: O_MARK, highlight: false },
+      { move: O_MARK, highlight: false },
+      { move: false, highlight: false }
+    ],
+    [
+      { move: false, highlight: false },
+      { move: false, highlight: false },
+      { move: false, highlight: false }
+    ]
   ]
 
   const updatedBoard = [
-    [X_MARK, X_MARK, X_MARK],
-    [O_MARK, O_MARK, false],
-    [false, false, false]
+    [
+      { move: X_MARK, highlight: true },
+      { move: X_MARK, highlight: true },
+      { move: X_MARK, highlight: true }
+    ],
+    [
+      { move: O_MARK, highlight: false },
+      { move: O_MARK, highlight: false },
+      { move: false, highlight: false }
+    ],
+    [
+      { move: false, highlight: false },
+      { move: false, highlight: false },
+      { move: false, highlight: false }
+    ]
   ]
 
   expect(reducer(previousState, addMove({ row: 0, index: 2 }))).toEqual({
@@ -75,15 +135,39 @@ test('should calculate row winning combination', () => {
 test('should calculate column winning combination', () => {
   const previousState = { ...initialState }
   previousState.board = [
-    [X_MARK, O_MARK, false],
-    [X_MARK, O_MARK, false],
-    [false, false, false]
+    [
+      { move: X_MARK, highlight: false },
+      { move: O_MARK, highlight: false },
+      { move: false, highlight: false }
+    ],
+    [
+      { move: X_MARK, highlight: false },
+      { move: O_MARK, highlight: false },
+      { move: false, highlight: false }
+    ],
+    [
+      { move: false, highlight: false },
+      { move: false, highlight: false },
+      { move: false, highlight: false }
+    ]
   ]
 
   const updatedBoard = [
-    [X_MARK, O_MARK, false],
-    [X_MARK, O_MARK, false],
-    [X_MARK, false, false]
+    [
+      { move: X_MARK, highlight: true },
+      { move: O_MARK, highlight: false },
+      { move: false, highlight: false }
+    ],
+    [
+      { move: X_MARK, highlight: true },
+      { move: O_MARK, highlight: false },
+      { move: false, highlight: false }
+    ],
+    [
+      { move: X_MARK, highlight: true },
+      { move: false, highlight: false },
+      { move: false, highlight: false }
+    ]
   ]
 
   expect(reducer(previousState, addMove({ row: 2, index: 0 }))).toEqual({
@@ -97,15 +181,39 @@ test('should calculate column winning combination', () => {
 test('should calculate right diagonal winning combination', () => {
   const previousState = { ...initialState }
   previousState.board = [
-    [X_MARK, O_MARK, false],
-    [O_MARK, X_MARK, false],
-    [false, false, false]
+    [
+      { move: X_MARK, highlight: false },
+      { move: O_MARK, highlight: false },
+      { move: false, highlight: false }
+    ],
+    [
+      { move: O_MARK, highlight: false },
+      { move: X_MARK, highlight: false },
+      { move: false, highlight: false }
+    ],
+    [
+      { move: false, highlight: false },
+      { move: false, highlight: false },
+      { move: false, highlight: false }
+    ]
   ]
 
   const updatedBoard = [
-    [X_MARK, O_MARK, false],
-    [O_MARK, X_MARK, false],
-    [false, false, X_MARK]
+    [
+      { move: X_MARK, highlight: true },
+      { move: O_MARK, highlight: false },
+      { move: false, highlight: false }
+    ],
+    [
+      { move: O_MARK, highlight: false },
+      { move: X_MARK, highlight: true },
+      { move: false, highlight: false }
+    ],
+    [
+      { move: false, highlight: false },
+      { move: false, highlight: false },
+      { move: X_MARK, highlight: true }
+    ]
   ]
 
   expect(reducer(previousState, addMove({ row: 2, index: 2 }))).toEqual({
@@ -119,15 +227,39 @@ test('should calculate right diagonal winning combination', () => {
 test('should calculate left diagonal winning combination', () => {
   const previousState = { ...initialState }
   previousState.board = [
-    [O_MARK, false, X_MARK],
-    [O_MARK, X_MARK, false],
-    [false, false, false]
+    [
+      { move: O_MARK, highlight: false },
+      { move: false, highlight: false },
+      { move: X_MARK, highlight: false }
+    ],
+    [
+      { move: O_MARK, highlight: false },
+      { move: X_MARK, highlight: false },
+      { move: false, highlight: false }
+    ],
+    [
+      { move: false, highlight: false },
+      { move: false, highlight: false },
+      { move: false, highlight: false }
+    ]
   ]
 
   const updatedBoard = [
-    [O_MARK, false, X_MARK],
-    [O_MARK, X_MARK, false],
-    [X_MARK, false, false]
+    [
+      { move: O_MARK, highlight: false },
+      { move: false, highlight: false },
+      { move: X_MARK, highlight: true }
+    ],
+    [
+      { move: O_MARK, highlight: false },
+      { move: X_MARK, highlight: true },
+      { move: false, highlight: false }
+    ],
+    [
+      { move: X_MARK, highlight: true },
+      { move: false, highlight: false },
+      { move: false, highlight: false }
+    ]
   ]
 
   expect(reducer(previousState, addMove({ row: 2, index: 0 }))).toEqual({
@@ -141,15 +273,39 @@ test('should calculate left diagonal winning combination', () => {
 test('should calculate draw', () => {
   const previousState = { ...initialState }
   previousState.board = [
-    [X_MARK, O_MARK, X_MARK],
-    [O_MARK, X_MARK, X_MARK],
-    [O_MARK, false, O_MARK]
+    [
+      { move: X_MARK, highlight: false },
+      { move: O_MARK, highlight: false },
+      { move: X_MARK, highlight: false }
+    ],
+    [
+      { move: O_MARK, highlight: false },
+      { move: X_MARK, highlight: false },
+      { move: X_MARK, highlight: false }
+    ],
+    [
+      { move: O_MARK, highlight: false },
+      { move: false, highlight: false },
+      { move: O_MARK, highlight: false }
+    ]
   ]
 
   const updatedBoard = [
-    [X_MARK, O_MARK, X_MARK],
-    [O_MARK, X_MARK, X_MARK],
-    [O_MARK, X_MARK, O_MARK]
+    [
+      { move: X_MARK, highlight: false },
+      { move: O_MARK, highlight: false },
+      { move: X_MARK, highlight: false }
+    ],
+    [
+      { move: O_MARK, highlight: false },
+      { move: X_MARK, highlight: false },
+      { move: X_MARK, highlight: false }
+    ],
+    [
+      { move: O_MARK, highlight: false },
+      { move: X_MARK, highlight: false },
+      { move: O_MARK, highlight: false }
+    ]
   ]
 
   expect(reducer(previousState, addMove({ row: 2, index: 1 }))).toEqual({
@@ -163,9 +319,21 @@ test('should calculate draw', () => {
 test('should reset the board in 3x3 grid', () => {
   const previousState = { ...initialState }
   previousState.board = [
-    [X_MARK, O_MARK, X_MARK],
-    [O_MARK, X_MARK, X_MARK],
-    [O_MARK, X_MARK, O_MARK]
+    [
+      { move: X_MARK, highlight: false },
+      { move: O_MARK, highlight: false },
+      { move: X_MARK, highlight: false }
+    ],
+    [
+      { move: O_MARK, highlight: false },
+      { move: X_MARK, highlight: false },
+      { move: X_MARK, highlight: false }
+    ],
+    [
+      { move: O_MARK, highlight: false },
+      { move: X_MARK, highlight: false },
+      { move: O_MARK, highlight: false }
+    ]
   ]
 
   expect(reducer(previousState, resetBoard({ round: 1, grid: 3 }))).toEqual(initialState)
@@ -174,9 +342,21 @@ test('should reset the board in 3x3 grid', () => {
 test('should reset the board in 4x4 grid', () => {
   const previousState = { ...initialState }
   previousState.board = [
-    [X_MARK, O_MARK, X_MARK],
-    [O_MARK, X_MARK, X_MARK],
-    [O_MARK, X_MARK, O_MARK]
+    [
+      { move: X_MARK, highlight: false },
+      { move: O_MARK, highlight: false },
+      { move: X_MARK, highlight: false }
+    ],
+    [
+      { move: O_MARK, highlight: false },
+      { move: X_MARK, highlight: false },
+      { move: X_MARK, highlight: false }
+    ],
+    [
+      { move: O_MARK, highlight: false },
+      { move: X_MARK, highlight: false },
+      { move: O_MARK, highlight: false }
+    ]
   ]
 
   const newState: BoardSliceInterface = {
@@ -190,9 +370,21 @@ test('should reset the board in 4x4 grid', () => {
 test('should reset with O_MARK at round 2', () => {
   const previousState = { ...initialState }
   previousState.board = [
-    [X_MARK, O_MARK, X_MARK],
-    [O_MARK, X_MARK, X_MARK],
-    [O_MARK, X_MARK, O_MARK]
+    [
+      { move: X_MARK, highlight: false },
+      { move: O_MARK, highlight: false },
+      { move: X_MARK, highlight: false }
+    ],
+    [
+      { move: O_MARK, highlight: false },
+      { move: X_MARK, highlight: false },
+      { move: X_MARK, highlight: false }
+    ],
+    [
+      { move: O_MARK, highlight: false },
+      { move: X_MARK, highlight: false },
+      { move: O_MARK, highlight: false }
+    ]
   ]
 
   const newState: BoardSliceInterface = {
