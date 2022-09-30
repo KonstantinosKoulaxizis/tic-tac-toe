@@ -25,8 +25,12 @@ export const boardSlice = createSlice({
     addMove: (state, action: PayloadAction<{ row: number; index: number }>) => {
       const { row, index } = action.payload
 
-      state.board[row][index] = state.turn
-      state.result = calculateResult(state.board)
+      state.board[row][index].move = state.turn
+
+      const { result, updatedBoard } = calculateResult(state.board)
+
+      state.result = result
+      state.board = updatedBoard
 
       if (!state.result) {
         state.turn = state.turn === X_MARK ? O_MARK : X_MARK

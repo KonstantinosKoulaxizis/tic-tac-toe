@@ -14,15 +14,15 @@ const Board = () => {
         {board.map((rows, i) => (
           <div className='board-row' key={i}>
             {/* Render row tiles */}
-            {rows.map((move, index) => (
+            {rows.map((tile, index) => (
               <button
                 key={`${i}-${index}`}
-                className='board-tile'
+                className={tile.highlight ? 'board-tile highlighted' : 'board-tile'}
                 onClick={() => dispatch(addMove({ row: i, index }))}
-                disabled={!!move || !!result || disabled}
+                disabled={!!tile.move || !!result || disabled}
               >
                 {/* If there is a move render Mark */}
-                {move && <Mark mark={move} />}
+                {tile.move && <Mark mark={tile.move} />}
               </button>
             ))}
           </div>

@@ -108,6 +108,10 @@
           font-size: 33px;
         }
 
+        .highlighted {
+          background-color: $green_800;
+        }
+
         .board-tile:disabled {
           cursor: not-allowed;
         }
