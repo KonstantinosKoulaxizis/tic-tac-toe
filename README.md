@@ -12,6 +12,7 @@ This project was bootstrapped with Create React App and typescript template, use
 - Keep score of players wins and game draws
 - Play against a not so smart ai
 - Change starting mark after each round ( X goes first on odd rounds )
+- Highlight winning combination
 - Typescript
 - React redux (toolkit) for global state management
 - Some unit tests
@@ -19,7 +20,6 @@ This project was bootstrapped with Create React App and typescript template, use
 
 ## Future implementations
 - Improve ai player's algorithm
-- Highlight winning combination
 - Implement more unit tests and integration tests
 - Improve scss
 ## Setup the project
