@@ -4,6 +4,11 @@ import GameSelection from './views/GameSelection'
 import Game from './views/Game'
 
 export default function App() {
+  // test segment
+  window.analytics.identify('test_user',{
+    name: 'test',
+  })
+  
   return (
     <Routes>
       <Route path='/' element={<Layout />}>
