@@ -3,6 +3,11 @@ import { Routes, Route, Outlet } from 'react-router-dom'
 import GameSelection from './views/GameSelection'
 import Game from './views/Game'
 
+type IdentifyActionType = (
+    customerId: string,
+    traits: IdentifyTraitsType,
+) => void;
+
 declare global {
     interface Window {
         analytics?: {
