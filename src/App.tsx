@@ -5,7 +5,7 @@ import Game from './views/Game'
 
 type IdentifyActionType = (
     customerId: string,
-    traits: IdentifyTraitsType,
+    traits: {name: string},
 ) => void;
 
 declare global {
