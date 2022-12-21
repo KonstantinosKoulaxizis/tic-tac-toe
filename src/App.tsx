@@ -10,8 +10,8 @@ type IdentifyActionType = (
 
 declare global {
     interface Window {
-        analytics?: {
-            identify?: IdentifyActionType;
+        analytics: {
+            identify: IdentifyActionType;
         };
     }
 }
